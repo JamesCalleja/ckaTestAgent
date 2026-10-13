@@ -10,6 +10,8 @@ from typing import List, Optional
 # Ensure project root is on sys.path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from rich.panel import Panel
+from rich.table import Table
 from core.models import Scenario
 from core.engine import ExamEngine
 from core.ui import UI, console
@@ -38,7 +40,6 @@ def reset_cluster(engine: ExamEngine):
     console.print("[bold green]✅ Cluster reset complete![/bold green]\n")
 
 def list_tasks(engine: ExamEngine):
-    from rich.table import Table
     table = Table(title="Exam Task List", border_style="cyan", expand=True)
     table.add_column("Task #", justify="center", width=8)
     table.add_column("Title", ratio=3)
